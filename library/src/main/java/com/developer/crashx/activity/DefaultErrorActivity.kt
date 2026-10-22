@@ -7,7 +7,6 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
-import android.os.Build
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
@@ -203,20 +202,12 @@ class DefaultErrorActivity : AppCompatActivity() {
 
     private fun tintPrimaryButton(button: Button) {
         button.setTextColor(config.buttonTextColor)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            button.backgroundTintList = ColorStateList.valueOf(config.primaryButtonColor)
-        } else {
-            button.setBackgroundColor(config.primaryButtonColor)
-        }
+        button.backgroundTintList = ColorStateList.valueOf(config.primaryButtonColor)
     }
 
     private fun tintSecondaryButton(button: Button) {
         button.setTextColor(config.secondaryButtonTextColor)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            button.backgroundTintList = ColorStateList.valueOf(config.secondaryButtonColor)
-        } else {
-            button.setBackgroundColor(config.secondaryButtonColor)
-        }
+        button.backgroundTintList = ColorStateList.valueOf(config.secondaryButtonColor)
     }
 
     private fun showErrorDetailsDialog() {
