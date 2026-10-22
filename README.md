@@ -192,6 +192,10 @@ CrashX v7.0.1 can include:
   <img src="images/Screenshot_1779711035.png" width="320" alt="CrashX Sample Screen" />
 </p>
 
+## Kotlin
+
+As of v7.0.2 the library sources are Kotlin (compileSdk 37, minSdk 23). The public API is unchanged: existing Java code calling `CrashConfig.Builder.create()`, `CrashActivity.install(...)`, and the constants keeps compiling, Java consumers get `kotlin-stdlib` transitively from the AAR POM.
+
 ## Installation
 
 CrashX is available through **Maven Central**.
