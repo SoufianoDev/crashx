@@ -305,8 +305,12 @@ object CrashActivity {
 
     @JvmStatic
     fun getConfigFromIntent(intent: Intent): CrashConfig {
-        @Suppress("DEPRECATION")
-        val fromIntent = intent.getSerializableExtra(EXTRA_CONFIG) as? CrashConfig
+        val fromIntent = if (Build.VERSION.SDK_INT >= 33) {
+            intent.getSerializableExtra(EXTRA_CONFIG, CrashConfig::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getSerializableExtra(EXTRA_CONFIG) as? CrashConfig
+        }
         val crashConfig = fromIntent ?: getConfig()
 
         if (crashConfig.isLogErrorOnRestart) {
@@ -496,6 +500,7 @@ object CrashActivity {
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun getVersionCode(context: Context): Long {
         try {
             val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
