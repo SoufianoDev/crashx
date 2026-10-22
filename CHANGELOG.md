@@ -1,3 +1,11 @@
+## [7.0.2] - 2026-10-22
+
+### Changed
+
+- Migrated library and sample sources from Java to Kotlin.
+- The public API is unchanged; Java consumers compile against the same classes, getters and builder methods as before.
+- AGP 9 built-in Kotlin support compiles the new sources, no extra Kotlin plugin or version pinning added.
+
 # CrashX v7.0.1
 
 CrashX v7.0.1 is a major transparency, maintenance, and modernization release.
